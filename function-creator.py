@@ -12,7 +12,7 @@ def expandyaml(data):
             current[sub_keys[-1]] = expandyaml(value)
         return result
     if isinstance(data, list):
-        return [expandyaml(item) for item in data]
+        return [uvexpandyaml(item) for item in data]
     else:
         return data
 
