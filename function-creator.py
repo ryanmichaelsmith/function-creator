@@ -12,7 +12,7 @@ def expandyaml(data):
             current[sub_keys[-1]] = expandyaml(value)
         return result
     if isinstance(data, list):
-        return [uvexpandyaml(item) for item in data]
+        return [expandyaml(item) for item in data]
     else:
         return data
 
@@ -67,7 +67,7 @@ def main():
 
     finally:
         print("Cleaning up function")
-        # lambda_client.delete_function(FunctionName=function_manifest['FunctionName'])
+        lambda_client.delete_function(FunctionName=function_manifest['FunctionName'])
         print('Done')
 
 if __name__ == "__main__":
